@@ -1,0 +1,399 @@
+# NEUROVERSE — MASTER PROJECT SPECIFICATION
+
+Construirea unui sistem neuronal artificial 3D, modular, interactiv și capabil să învețe
+
+1. MISIUNEA PROIECTULUI
+
+Construiește NEUROVERSE, un proiect experimental de inteligență artificială inspirat de organizarea și funcționarea sistemelor nervoase.
+
+Obiectivul este dezvoltarea progresivă a unui sistem artificial alcătuit din neuroni matematici, conexiuni parametrizabile, mecanisme de învățare, memorie, percepție și un mediu virtual în care acțiunile au consecințe măsurabile.
+
+Proiectul trebuie să fie un sistem funcțional, nu doar o animație, o pagină de prezentare sau o simulare vizuală fără legătură cu un model de calcul real.
+
+NEUROVERSE trebuie să permită utilizatorului să observe structura internă a rețelei, să inspecteze neuronii și conexiunile, să schimbe intrările, să ruleze experimente și să vadă cum învățarea modifică parametrii și comportamentul sistemului.
+
+Viziunea pe termen lung este explorarea unor arhitecturi artificiale tot mai complexe și investigarea întrebărilor despre inteligență și conștiință. Nu presupune că aceste obiective sunt deja rezolvate și nu prezenta conștiința ca pe un rezultat garantat.
+
+2. REGULA ZERO: CONTINUĂ PROIECTUL EXISTENT
+
+Înainte de a modifica orice fișier:
+
+1. Inspectează proiectul existent și identifică toate fișierele, scenele, modelele 3D, scripturile, materialele, componentele, dependențele și configurațiile.
+2. Identifică motorul 3D, limbajul, sistemul de fizică și arhitectura deja utilizate.
+3. Citește codul și documentația disponibilă.
+4. Identifică funcționalitățile deja implementate și păstrează-le.
+5. Identifică erorile, componentele incomplete și dependențele lipsă.
+6. Creează un plan de integrare care reutilizează ceea ce există deja.
+
+Nu reconstrui proiectul de la zero dacă există deja o bază funcțională.
+
+Nu transforma proiectul într-o aplicație HTML dacă obiectivul este continuarea unui proiect nativ într-un motor 3D.
+
+Nu schimba Unity cu Unreal, Godot cu Three.js sau un alt motor fără un motiv tehnic clar și fără acordul utilizatorului.
+
+Dacă proiectul original nu este disponibil, cere fișierele necesare înainte să pretinzi că ai continuat acel proiect.
+
+Nu inventa funcționalități despre care susții că au fost discutate anterior. Separă cerințele confirmate de propunerile noi.
+
+3. ARHITECTURA GENERALĂ
+
+Organizează NEUROVERSE în module independente, conectate prin interfețe clare:
+
+A. Neural Core — motorul neuronal și calculele.
+
+B. Neural Visualization — reprezentarea 3D a neuronilor și conexiunilor.
+
+C. Learning Engine — antrenare, optimizare și evaluare.
+
+D. Sensory System — transformarea informațiilor din mediu în intrări pentru model.
+
+E. Action System — transformarea ieșirilor modelului în acțiuni.
+
+F. Environment — mediul virtual și starea sa.
+
+G. Memory System — înregistrarea, organizarea și recuperarea experiențelor.
+
+H. Language Module — procesarea limbajului, ca modul distinct.
+
+I. Experiment Manager — configurarea, repetarea și compararea experimentelor.
+
+J. Persistence — salvarea și restaurarea stării.
+
+K. Monitoring and Safety — validarea rezultatelor, limitele de calcul și diagnosticarea erorilor.
+
+Fiecare modul trebuie să aibă responsabilități clare. Vizualizarea nu trebuie să fie motorul învățării, iar memoria nu trebuie confundată cu simpla salvare a fișierului proiectului.
+
+4. CREIERUL ARTIFICIAL 3D
+
+Construiește un model 3D al unei rețele neuronale artificiale.
+
+Rețeaua trebuie să conțină obiecte sau entități logice pentru neuroni, conexiuni și straturi. Acestea trebuie să corespundă exact modelului de calcul.
+
+Fiecare neuron trebuie să poată avea:
+
+* identificator unic;
+* strat și tip;
+* valoare de activare;
+* bias, dacă arhitectura îl folosește;
+* funcție de activare;
+* listă de conexiuni de intrare și ieșire;
+* metadate de diagnostic.
+
+Fiecare conexiune trebuie să aibă:
+
+* neuron sursă;
+* neuron destinație;
+* pondere numerică;
+* contribuția calculată;
+* gradient, dacă este disponibil;
+* stare vizuală;
+* posibilitatea de inspectare.
+
+Rețeaua trebuie să poată fi mărită modular. Nu impune o arhitectură fixă pentru toate etapele viitoare.
+
+Poziționarea neuronilor în spațiu trebuie să comunice structura sistemului, dar să permită și explorarea liberă.
+
+5. MOTORUL MATEMATIC
+
+Implementează un motor neuronal real, separat de sistemul grafic.
+
+Pentru un neuron artificial standard, calculează:
+
+z = suma ponderilor înmulțite cu intrările + bias
+
+a = funcția_de_activare(z)
+
+Implementează propagarea înainte și, pentru arhitecturile antrenabile, metodele corecte de calcul al gradientului și actualizare a parametrilor.
+
+Alege arhitectura potrivită pentru fiecare sarcină. Rețelele feed-forward, rețelele recurente și arhitecturile bazate pe atenție nu sunt interschimbabile și nu trebuie prezentate ca fiind același mecanism.
+
+Nu crea impresia că un singur neuron artificial reproduce complexitatea unui neuron biologic.
+
+Pentru fiecare experiment, documentează:
+
+* arhitectura;
+* datele de intrare;
+* parametrii antrenabili;
+* funcția de pierdere;
+* algoritmul de învățare;
+* criteriile de evaluare;
+* limitările.
+
+6. VIZUALIZAREA ACTIVITĂȚII
+
+Leagă vizualizarea direct de starea reală a modelului.
+
+Folosește o convenție vizuală documentată pentru:
+
+* activarea neuronilor;
+* semnul și magnitudinea ponderilor;
+* propagarea informației;
+* conexiunile selectate;
+* neuronii activi în calculul curent;
+* modificarea parametrilor în timpul antrenării.
+
+Permite rotirea, apropierea, depărtarea și selectarea neuronilor.
+
+La selectarea unui neuron, afișează activarea sa, intrările, ponderile, biasul, ieșirea și calculul matematic relevant.
+
+Permite ascunderea anumitor straturi, izolarea unor conexiuni și navigarea între niveluri de detaliu.
+
+Nu anima semnale fictive și nu reprezenta activări pe care modelul nu le-a calculat.
+
+Pentru rețele mari, folosește niveluri de detaliu, gruparea neuronilor și actualizări eficiente. Nu încerca să afișezi fiecare detaliu al unei rețele foarte mari simultan.
+
+7. ÎNVĂȚARE DIN EXPERIENȚĂ
+
+NEUROVERSE trebuie să poată învăța din date sau din interacțiunea cu un mediu, în funcție de modul utilizat.
+
+Implementează separat:
+
+1. Învățare supravegheată — modelul primește intrări și ținte.
+2. Învățare nesupravegheată — modelul caută structuri în date, când este potrivit.
+3. Învățare prin întărire — un agent alege acțiuni și primește recompense sau penalizări definite de mediu.
+
+Nu amesteca acești algoritmi într-un sistem opac. Fiecare trebuie să aibă o explicație, o implementare și teste proprii.
+
+Pentru primul experiment, folosește o rețea mică antrenată pe XOR, dacă nu există deja un experiment mai avansat în proiect.
+
+Pentru un experiment ulterior, construiește un agent care se deplasează într-un mediu virtual și învață să atingă o țintă.
+
+Afișează recompensele, acțiunile, succesele, erorile și evoluția performanței. Compară rezultatele pe mai multe rulari, deoarece o singură rulare nu demonstrează robustețea.
+
+8. MEDIUL VIRTUAL
+
+Construiește un mediu 3D în care agentul poate observa starea lumii și poate influența mediul prin acțiuni.
+
+Mediul poate conține:
+
+* un agent controlat de model;
+* ținte;
+* obstacole;
+* zone de interes;
+* stări și tranziții;
+* reguli de interacțiune;
+* recompense;
+* evenimente;
+* condiții de succes și eșec.
+
+La fiecare pas:
+
+1. Mediul produce o observație.
+2. Observația este transformată într-o reprezentare numerică.
+3. Modelul selectează o acțiune.
+4. Mediul aplică acțiunea.
+5. Sistemul măsoară noua stare și rezultatul.
+6. Experiența este stocată dacă modul de învățare o cere.
+7. Agentul își actualizează strategia folosind algoritmul ales.
+
+Asigură-te că fiecare pas poate fi inspectat și repetat.
+
+Nu susține că agentul învață din experiență dacă doar urmează un traseu preprogramat.
+
+9. MEMORIA ARTIFICIALĂ
+
+Construiește un sistem de memorie modular.
+
+Separă:
+
+* memoria de lucru pentru starea curentă;
+* jurnalul experiențelor;
+* memoria de exemple;
+* memoria de lungă durată, dacă arhitectura o justifică;
+* parametrii învățați ai modelului.
+
+Pentru fiecare experiență, stochează doar informațiile necesare, precum observația, acțiunea, rezultatul, recompensa și contextul relevant.
+
+Implementează mecanisme de căutare și recuperare potrivite tipului de memorie.
+
+Permite examinarea, exportul, ștergerea și resetarea memoriei.
+
+Evaluează dacă experiențele recuperate îmbunătățesc realmente deciziile. Nu presupune că stocarea mai multor date înseamnă automat inteligență mai mare.
+
+Protejează datele utilizatorului și evită colectarea inutilă a informațiilor personale.
+
+10. PERCEPȚIE ȘI REPREZENTAREA LUMII
+
+Pregătește un sistem de percepție care poate transforma datele din mediul virtual în reprezentări utile modelului.
+
+În funcție de capabilitățile motorului, începe cu:
+
+* poziție;
+* distanță față de obiecte;
+* direcție;
+* obstacole;
+* stare internă a mediului;
+* senzori simulați.
+
+Ulterior, dacă există infrastructura potrivită, pot fi explorate intrări vizuale sau alte tipuri de date.
+
+Afișează separat datele brute, reprezentarea internă și decizia modelului, astfel încât utilizatorul să poată înțelege fluxul informațional.
+
+11. MODULUL DE LIMBAJ
+
+Limbajul trebuie să fie un modul separat, conectat printr-o interfață explicită.
+
+Nu pretinde că o rețea mică antrenată pe XOR poate conversa în mod natural.
+
+Pentru un sistem de limbaj avansat, evaluează utilizarea unui model lingvistic preantrenat și a unei infrastructuri compatibile.
+
+Documentează ce parte a sistemului este construită local, ce parte este preantrenată și ce parte depinde de un serviciu extern.
+
+Dacă se utilizează un serviciu extern, gestionează cheile API în siguranță, nu în codul public al clientului.
+
+Permite înregistrarea întrebărilor și răspunsurilor pentru experimente numai cu acordul utilizatorului.
+
+Nu echivala generarea fluentă de text cu înțelegerea umană sau cu existența conștiinței.
+
+12. OBSERVATOR ȘI INTERFAȚĂ DE CERCETARE
+
+Creează un panou de control care arată starea reală a sistemului.
+
+Afișează:
+
+* arhitectura rețelei;
+* numărul de parametri;
+* activările selectate;
+* ponderile și biasurile;
+* loss-ul;
+* performanța pe seturile de test;
+* recompensa medie, pentru învățarea prin întărire;
+* numărul de episoade;
+* istoricul experimentelor;
+* timpul de execuție, dacă este măsurat;
+* starea memoriei;
+* erorile tehnice.
+
+Permite pornirea, pauzarea, reluarea și oprirea controlată a experimentelor.
+
+Include un mod pas cu pas pentru inspectarea unei singure propagări sau a unei singure acțiuni.
+
+Adaugă explicații pe trei niveluri: intuitiv, tehnic și matematic.
+
+13. SALVARE ȘI REPRODUCIBILITATE
+
+Salvează separat:
+
+* configurația arhitecturii;
+* parametrii modelului;
+* starea mediului;
+* datele memoriei;
+* setările experimentului;
+* istoricul rezultatelor, în limite rezonabile.
+
+Permite restaurarea unei stări și repetarea unui experiment.
+
+Folosește seed-uri reproductibile acolo unde este posibil și înregistrează versiunile algoritmilor.
+
+Validează datele încărcate și gestionează fișierele incompatibile.
+
+Nu pretinde că un experiment este reproductibil dacă depinde de surse aleatoare sau de condiții externe neînregistrate.
+
+14. PERFORMANȚĂ ȘI SCALABILITATE
+
+Începe cu un model mic care poate fi verificat. Proiectează apoi extensii fără să supraîncarci dispozitivul.
+
+Măsoară costul calculelor și al randării.
+
+Pentru modele mici, folosește execuție locală dacă este adecvată.
+
+Pentru modele mari, evaluează GPU-ul, procesarea în fundal sau un server separat, în funcție de motorul proiectului.
+
+Nu presupune că un telefon poate antrena eficient un model de dimensiuni foarte mari.
+
+Folosește procesare în loturi, actualizări eficiente și limite configurabile.
+
+Păstrează interfața receptivă și oferă mesaje clare atunci când o sarcină este prea costisitoare.
+
+15. LIMITE ȘTIINȚIFICE ȘI CONȘTIINȚĂ
+
+Include o secțiune care distinge între:
+
+* comportament observabil;
+* performanță măsurată;
+* reprezentări interne;
+* învățare;
+* memorie;
+* inteligență generală;
+* ipoteze despre conștiință.
+
+Un sistem poate învăța o sarcină fără să fie conștient. O simulare 3D poate reprezenta neuroni fără să reproducă toate mecanismele unui creier biologic.
+
+Nu declara NEUROVERSE conștient, viu sau echivalent cu un creier uman pe baza animațiilor, a limbajului sau a complexității.
+
+Scopul este să construim un sistem verificabil și să investigăm riguros limitele sale.
+
+16. TESTARE ȘI CALITATE
+
+Adaugă teste pentru:
+
+* calculele neuronale;
+* actualizarea parametrilor;
+* funcțiile de pierdere;
+* învățare;
+* salvare și restaurare;
+* interacțiunea cu mediul;
+* recuperarea memoriei;
+* consistența dintre model și vizualizare;
+* gestionarea erorilor;
+* performanță.
+
+Verifică dacă valorile sunt finite și dacă datele invalide sunt respinse.
+
+Nu afișa rezultate de succes predefinite.
+
+Nu declara că un test a trecut dacă nu a fost executat.
+
+Păstrează proiectul într-o stare funcțională la fiecare etapă și evită rescrierile care distrug funcții existente.
+
+17. PLAN DE IMPLEMENTARE
+
+Etapa 1 — Auditul proiectului existent și păstrarea componentelor funcționale.
+
+Etapa 2 — Stabilizarea arhitecturii și a motorului neuronal.
+
+Etapa 3 — Integrarea modelului cu vizualizarea 3D.
+
+Etapa 4 — Antrenare reală și instrumente de evaluare.
+
+Etapa 5 — Mediu virtual cu observații, acțiuni și feedback.
+
+Etapa 6 — Sistem de memorie și experimente de recuperare a experiențelor.
+
+Etapa 7 — Percepție mai bogată și module de limbaj.
+
+Etapa 8 — Instrumente de cercetare, reproducibilitate și optimizare.
+
+Etapa 9 — Testarea completă și documentarea limitelor.
+
+Nu încerca să implementezi toate modulele simultan într-o singură bucată de cod. Construiește incremental, păstrând un proiect care rulează.
+
+18. CERINȚE FINALE
+
+Începe prin a inspecta proiectul existent.
+
+Apoi:
+
+1. Prezintă pe scurt ce există deja.
+2. Identifică diferența dintre starea actuală și obiectiv.
+3. Propune ordinea concretă a modificărilor.
+4. Implementează efectiv prima etapă.
+5. Rulează testele disponibile.
+6. Repară erorile constatate.
+7. Documentează ce funcționează și ce rămâne de construit.
+
+Nu te limita la explicații sau cod demonstrativ.
+
+Nu șterge proiectul original.
+
+Nu schimba motorul 3D fără justificare.
+
+Nu inventa istoricul discuțiilor sau funcționalități deja realizate.
+
+Dacă nu ai acces la fișiere, cere proiectul înainte să pretinzi că ai modificat ceva.
+
+REZULTATUL DORIT:
+
+NEUROVERSE trebuie să devină un laborator 3D modular în care putem observa și testa o rețea neuronală artificială, o putem antrena, îi putem inspecta parametrii și îi putem extinde treptat memoria, percepția, capacitatea de a acționa și interfața de limbaj.
+
+Construiește sistemul real, măsoară rezultatele și păstrează toate afirmațiile proporționale cu ceea ce a fost efectiv implementat și testat.
